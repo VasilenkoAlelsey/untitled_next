@@ -7,9 +7,11 @@ public class TestSpring {
         ClassPathXmlApplicationContext classPathXmlApplicationContext =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        TestBean testBean = classPathXmlApplicationContext.getBean("testBean", TestBean.class);
+        Music music = classPathXmlApplicationContext.getBean("musicBean", Music.class);
 
-        System.out.println(testBean.getName());
+        MusicPlayer musicPlayer = new MusicPlayer(music);
+
+        musicPlayer.playMusic();
 
         classPathXmlApplicationContext.close();
     }
